@@ -20,6 +20,9 @@ This project features a graphical Tic-Tac-Toe game where you can play against an
 **3. Winning:** The game detects winning combinations, and the winner is displayed with his winning combinations.
 **4. Play Again:** Use the "Play Again" button to start a new game.
 
+# 📜 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 # 🤝 Acknowledgments
 **Java Swing:** For providing a robust GUI toolkit.
 And to her who gave me such an inspiration to continue it.🌷
