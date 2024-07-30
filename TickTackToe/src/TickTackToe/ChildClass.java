@@ -8,12 +8,16 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ChildClass extends JFrame implements ActionListener {
 
 	///Variable declare
 	JPanel panelTop;
+	JLabel label;
+	boolean Xturn = true;
+	boolean Oturn = false;
 	int i;
 	JPanel panelGame;
 	JButton[] button = new JButton[9];
@@ -21,7 +25,12 @@ public class ChildClass extends JFrame implements ActionListener {
 	{
 		panelTop = new JPanel();
 		panelTop.setBounds(0,0,700,100);
+		panelTop.setLayout(null);
 		panelTop.setBackground(Color.orange);
+		
+		label = new JLabel();
+		label.setBounds(200,0,700,100);
+		label.setBackground(Color.orange);
 		
 		panelGame = new JPanel();
 		panelGame.setBounds(0,100,700,600);
@@ -51,13 +60,58 @@ public class ChildClass extends JFrame implements ActionListener {
 		
 		this.add(panelTop);
 		this.add(panelGame);
-		
+		panelTop.add(label);
 		this.setVisible(true);
+		
+		setText();
 	}
 
+	///***********************Top Label Text Set************************
+	public void setText() {
+		label.setFont(new Font("Tahoma",Font.PLAIN,65));
+		label.setBounds(150,0,700,100);
+		label.setText("Tick Tack Toe");
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		label.setBounds(250,0,700,100);
+		label.setFont(new Font("Tahoma",Font.PLAIN,65));
+		label.setText("X turn");
+	}
+	///*****************************Clear Variable end of game***********************
+	public void clearVariable() {
+		Xturn = true;
+		Oturn = false;
+	}
+	
+	public void checkWin() {
+		
+	}
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		
+		for(i = 0; i<9; i++) {
+			if(e.getSource() == button[i]) {
+				if(Xturn == true) {
+					
+					button[i].setText("X");
+					Xturn = false;
+					Oturn = true;
+					label.setText("O turn");
+				}
+				else {
+					
+					button[i].setText("O");
+					Oturn = false;
+					Xturn = true;
+					label.setText("X turn");
+				}
+			}
+		}
 		
 	}
 }
