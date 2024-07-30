@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -26,6 +27,8 @@ public class ChildClass extends JFrame implements ActionListener {
 	JButton playAgain;
 	ChildClass()
 	{
+		ImageIcon icon = new ImageIcon("icon.png");
+		
 		panelTop = new JPanel();
 		panelTop.setBounds(0,0,700,100);
 		panelTop.setLayout(null);
@@ -62,6 +65,7 @@ public class ChildClass extends JFrame implements ActionListener {
 		this.setSize(700,735);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
+		this.setIconImage(icon.getImage());
 		this.setTitle("Tick Tac Toe");
 		this.setResizable(false);
 		
