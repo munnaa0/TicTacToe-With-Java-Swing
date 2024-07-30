@@ -82,7 +82,7 @@ public class ChildClass extends JFrame implements ActionListener {
 	public void setText() {
 		label.setFont(new Font("Tahoma",Font.PLAIN,65));
 		label.setBounds(150,0,700,100);
-		label.setText("Tick Tack Toe");
+		label.setText("Tic Tac Toe");
 		
 		try {
 			Thread.sleep(500);
