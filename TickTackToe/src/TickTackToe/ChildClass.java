@@ -62,7 +62,7 @@ public class ChildClass extends JFrame implements ActionListener {
 		this.setSize(700,735);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setLayout(null);
-		this.setTitle("Tick Tack Toe");
+		this.setTitle("Tick Tac Toe");
 		this.setResizable(false);
 		
 		///Adding to frame
