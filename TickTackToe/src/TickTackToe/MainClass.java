@@ -3,7 +3,8 @@ package TickTackToe;
 public class MainClass {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		ChildClass Tick = new ChildClass();
 
 	}
 
