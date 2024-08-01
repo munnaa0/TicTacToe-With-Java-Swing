@@ -27,4 +27,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 # 🤝 Acknowledgments
 **Java Swing:** For providing a robust GUI toolkit.  
-And to her who gave me such an inspiration to continue it.🌷
+- And to her who gave me such an inspiration to continue it.🌷
