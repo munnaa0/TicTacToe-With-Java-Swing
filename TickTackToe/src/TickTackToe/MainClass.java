@@ -4,9 +4,9 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
-		ChildClass Tick = new ChildClass();
+		//ChildClass Tick = new ChildClass();
 		//multiPlayer player = new multiPlayer();
-		//AIclass AI = new AIclass();
+		AIclass AI = new AIclass();
 
 	}
 

@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -53,7 +54,7 @@ public class AIclass extends JFrame implements ActionListener {
 		playAgain.setFocusable(false);
 		playAgain.setBackground(Color.LIGHT_GRAY);
 		playAgain.setFont(new Font("Tahoma",Font.PLAIN,18));
-		playAgain.setVisible(true); ///Turn this false
+		playAgain.setVisible(false); ///Turn this false
 		playAgain.addActionListener(this);
 		
 		//For Buttons
@@ -65,6 +66,9 @@ public class AIclass extends JFrame implements ActionListener {
 			button[i].setFocusable(false);
 			button[i].addActionListener(this);
 		}
+		
+		///Initial Button Disable
+		buttonDisable(false);
 		//Frame Create
 		this.setSize(700,735);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,14 +98,15 @@ public class AIclass extends JFrame implements ActionListener {
 		label.setText("Tic Tac Toe");
 		
 		try {
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
 		}
+		
 		label.setBounds(250,0,700,100);
 		label.setFont(new Font("Tahoma",Font.PLAIN,65));
-		label.setText("X turn");
+		buttonDisable(true);
+		label.setText("X Turn");
 	}
 	///*****************************Clear Variable end of game***********************
 	public void clearVariable() {
@@ -285,6 +290,7 @@ public class AIclass extends JFrame implements ActionListener {
 		else {
 			Oturn();
 		}
+		label.setText("X Turn");
 	}
 	
 	public void Xstopturn() {
@@ -530,7 +536,6 @@ public class AIclass extends JFrame implements ActionListener {
 					
 					button[randomNUM].setText("O");
 					randomCheck = false;
-					label.setText("X Turn");
 				}
 	}
 	
@@ -777,7 +782,7 @@ public class AIclass extends JFrame implements ActionListener {
 			clearVariable();
 			colorReset();
 			buttonDisable(true);
-			//playAgain.setVisible(false);
+			playAgain.setVisible(false);
 		}
 		
 		for(i = 0; i<9; i++) {

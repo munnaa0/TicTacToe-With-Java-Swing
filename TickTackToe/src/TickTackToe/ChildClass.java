@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -99,9 +100,9 @@ public class ChildClass extends JFrame implements ActionListener {
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
 		}
+		
 		label.setBounds(250,0,700,100);
 		label.setFont(new Font("Tahoma",Font.PLAIN,65));
 		buttonDisable(true);
