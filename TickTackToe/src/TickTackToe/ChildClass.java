@@ -67,6 +67,7 @@ public class ChildClass extends JFrame implements ActionListener {
 		this.setLayout(null);
 		this.setIconImage(icon.getImage());
 		this.setTitle("Tick Tac Toe");
+		this.setLocationRelativeTo(null); /// Open From Center
 		this.setResizable(false);
 		
 		///Adding to frame
@@ -261,18 +262,22 @@ public class ChildClass extends JFrame implements ActionListener {
 		for(i = 0; i<9; i++) {
 			if(e.getSource() == button[i]) {
 				if(Xturn == true) {	
-					button[i].setText("X");
-					Xturn = false;
-					Oturn = true;
-					label.setText("O Turn");
-					XWinCheck();
+					if(button[i].getText() != "X" && button[i].getText() != "O") {
+						button[i].setText("X");
+						Xturn = false;
+						Oturn = true;
+						label.setText("O Turn");
+						XWinCheck();
+					}
 				}
 				else {
-					button[i].setText("O");
-					Oturn = false;
-					Xturn = true;
-					label.setText("X turn");
-					OWinCheck();
+					if(button[i].getText()!="X" && button[i].getText() != "O") {
+						button[i].setText("O");
+						Oturn = false;
+						Xturn = true;
+						label.setText("X turn");
+						OWinCheck();
+					}
 				}
 			}
 		}
