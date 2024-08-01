@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Random;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,15 +20,17 @@ public class ChildClass extends JFrame implements ActionListener {
 	JLabel label;
 	int Tie=0;
 	boolean Winner = false;
-	boolean Xturn = true;
-	boolean Oturn = false;
+	boolean randomCheck = false;
+	int randomNUM;
 	int i;
 	JPanel panelGame;
+	Random random;
 	JButton[] button = new JButton[9];
 	JButton playAgain;
 	ChildClass()
 	{
 		ImageIcon icon = new ImageIcon("icon.png");
+		random = new Random();
 		
 		panelTop = new JPanel();
 		panelTop.setBounds(0,0,700,100);
@@ -49,7 +52,7 @@ public class ChildClass extends JFrame implements ActionListener {
 		playAgain.setFocusable(false);
 		playAgain.setBackground(Color.LIGHT_GRAY);
 		playAgain.setFont(new Font("Tahoma",Font.PLAIN,18));
-		playAgain.setVisible(false);
+		playAgain.setVisible(true); ///Turn this false
 		playAgain.addActionListener(this);
 		
 		//For Buttons
@@ -101,9 +104,8 @@ public class ChildClass extends JFrame implements ActionListener {
 	}
 	///*****************************Clear Variable end of game***********************
 	public void clearVariable() {
-		Xturn = true;
-		Oturn = false;
 		Tie=0;
+		randomNUM = 0;
 		Winner = false;
 		for(i=0;i<9;i++) {
 			button[i].setText("");
@@ -155,6 +157,7 @@ public class ChildClass extends JFrame implements ActionListener {
 			}
 		if(Tie == 9 && Winner == false) {
 			label.setText("It's a Tie");
+			Winner = true;
 			buttonDisable(false);
 			playAgain.setVisible(true);
 		}
@@ -218,6 +221,7 @@ public class ChildClass extends JFrame implements ActionListener {
 				}
 			if(Tie == 9 && Winner == false) {
 				label.setText("It's a Tie");
+				Winner = true;
 				buttonDisable(false);
 				playAgain.setVisible(true);
 			}
@@ -247,6 +251,21 @@ public class ChildClass extends JFrame implements ActionListener {
 		}
 	}
 	
+	//***********************************AI TURN***************************************
+	public void AIturn() {
+			do {
+				randomNUM = random.nextInt(9);
+				if(button[randomNUM].getText() != "X" && button[randomNUM].getText() != "O") {
+					randomCheck = true;
+				}
+			}while(randomCheck == false);
+			
+			button[randomNUM].setText("O");
+			randomCheck = false;
+			label.setText("X Turn");
+	}
+	
+	
 	///******************************Main COde*************************
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -256,29 +275,23 @@ public class ChildClass extends JFrame implements ActionListener {
 			clearVariable();
 			colorReset();
 			buttonDisable(true);
-			playAgain.setVisible(false);
+			//playAgain.setVisible(false);
 		}
 		
 		for(i = 0; i<9; i++) {
 			if(e.getSource() == button[i]) {
-				if(Xturn == true) {	
 					if(button[i].getText() != "X" && button[i].getText() != "O") {
 						button[i].setText("X");
-						Xturn = false;
-						Oturn = true;
-						label.setText("O Turn");
 						XWinCheck();
+						if(Winner != true) {
+							label.setText("O Turn");
+							AIturn();
+							OWinCheck();
+						}
+						
+//******************************	O TURN**************************************************						
 					}
-				}
-				else {
-					if(button[i].getText()!="X" && button[i].getText() != "O") {
-						button[i].setText("O");
-						Oturn = false;
-						Xturn = true;
-						label.setText("X turn");
-						OWinCheck();
-					}
-				}
+				//***************************************************
 			}
 		}
 		
