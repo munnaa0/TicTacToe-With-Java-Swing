@@ -6,6 +6,7 @@ public class MainClass {
 		
 		ChildClass Tick = new ChildClass();
 		//multiPlayer player = new multiPlayer();
+		//AIclass AI = new AIclass();
 
 	}
 

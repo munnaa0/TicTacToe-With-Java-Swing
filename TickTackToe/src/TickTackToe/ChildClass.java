@@ -21,6 +21,7 @@ public class ChildClass extends JFrame implements ActionListener {
 	int Tie=0;
 	boolean Winner = false;
 	boolean randomCheck = false;
+	boolean FirstTurn = true;
 	int randomNUM;
 	int i;
 	JPanel panelGame;
@@ -52,7 +53,7 @@ public class ChildClass extends JFrame implements ActionListener {
 		playAgain.setFocusable(false);
 		playAgain.setBackground(Color.LIGHT_GRAY);
 		playAgain.setFont(new Font("Tahoma",Font.PLAIN,18));
-		playAgain.setVisible(true); ///Turn this false
+		playAgain.setVisible(false); ///Turn this false
 		playAgain.addActionListener(this);
 		
 		//For Buttons
@@ -64,6 +65,9 @@ public class ChildClass extends JFrame implements ActionListener {
 			button[i].setFocusable(false);
 			button[i].addActionListener(this);
 		}
+		
+		///Initial Button Disable
+		buttonDisable(false);
 		//Frame Create
 		this.setSize(700,735);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -93,19 +97,21 @@ public class ChildClass extends JFrame implements ActionListener {
 		label.setText("Tic Tac Toe");
 		
 		try {
-			Thread.sleep(500);
+			Thread.sleep(1000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		label.setBounds(250,0,700,100);
 		label.setFont(new Font("Tahoma",Font.PLAIN,65));
-		label.setText("X turn");
+		buttonDisable(true);
+		label.setText("X Turn");
 	}
 	///*****************************Clear Variable end of game***********************
 	public void clearVariable() {
 		Tie=0;
 		randomNUM = 0;
+		FirstTurn = true;
 		Winner = false;
 		for(i=0;i<9;i++) {
 			button[i].setText("");
@@ -253,17 +259,517 @@ public class ChildClass extends JFrame implements ActionListener {
 	
 	//***********************************AI TURN***************************************
 	public void AIturn() {
-			do {
-				randomNUM = random.nextInt(9);
-				if(button[randomNUM].getText() != "X" && button[randomNUM].getText() != "O") {
-					randomCheck = true;
-				}
-			}while(randomCheck == false);
-			
-			button[randomNUM].setText("O");
-			randomCheck = false;
-			label.setText("X Turn");
+		boolean turn = false;
+		///************************First Turn*****************************************
+		if(FirstTurn == true) {
+			if(button[4].getText()=="X") {
+				button[2].setText("O");
+			}
+			else if(button[0].getText()=="X" ||
+				button[2].getText()=="X" ||
+				button[6].getText()=="X" ||
+				button[8].getText()=="X") {
+				
+				button[4].setText("O");
+			}
+			else if(button[1].getText()=="X") {
+				button[2].setText("O");
+			}
+			else if(button[5].getText()=="X" ||
+					button[7].getText()=="X") {
+				button[8].setText("O");
+			}
+			else if(button[3].getText()=="X") {
+				button[6].setText("O");
+			}
+			FirstTurn = false;
+			turn = true;
+		}
+		//************************First TUrn END**************************************
+		else {
+			Oturn();
+		}
+		label.setText("X Turn");
 	}
+	
+	public void Xstopturn() {
+		boolean turn = false;
+		
+		if(turn == false) {
+			if(button[0].getText()=="X" &&
+					button[1].getText()=="X"
+					&& turn == false) {
+				if(button[2].getText()=="") {
+					button[2].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="X" &&
+					button[2].getText()=="X"
+					&& turn == false) {
+				if(button[1].getText()=="") {
+					button[1].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[1].getText()=="X" &&
+					button[2].getText()=="X"
+					&& turn == false) {
+				if(button[0].getText()=="") {
+					button[0].setText("O");
+					turn = true;
+				}
+			}
+	//******************************************************************************		
+			if(button[3].getText()=="X" &&
+					button[4].getText()=="X"
+					&& turn == false) {
+				if(button[5].getText()=="") {
+					button[5].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[3].getText()=="X" &&
+					button[5].getText()=="X"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[4].getText()=="X" &&
+					button[5].getText()=="X"
+					&& turn == false) {
+				if(button[3].getText()=="") {
+					button[3].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[7].getText()=="X" &&
+					button[8].getText()=="X"
+					&& turn == false) {
+				if(button[6].getText()=="") {
+					button[6].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[6].getText()=="X" &&
+					button[8].getText()=="X"
+					&& turn == false) {
+				if(button[7].getText()=="") {
+					button[7].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[6].getText()=="X" &&
+					button[7].getText()=="X"
+					&& turn == false) {
+				if(button[8].getText()=="") {
+					button[8].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[3].getText()=="X" &&
+					button[6].getText()=="X"
+					&& turn == false) {
+				if(button[0].getText()=="") {
+					button[0].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="X" &&
+					button[6].getText()=="X"
+					&& turn == false) {
+				if(button[3].getText()=="") {
+					button[3].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="X" &&
+					button[3].getText()=="X"
+					&& turn == false) {
+				if(button[6].getText()=="") {
+					button[6].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[4].getText()=="X" &&
+					button[7].getText()=="X"
+					&& turn == false) {
+				if(button[1].getText()=="") {
+					button[1].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[1].getText()=="X" &&
+					button[7].getText()=="X"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[1].getText()=="X" &&
+					button[4].getText()=="X"
+					&& turn == false) {
+				if(button[7].getText()=="") {
+					button[7].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[5].getText()=="X" &&
+					button[8].getText()=="X"
+					&& turn == false) {
+				if(button[2].getText()=="") {
+					button[2].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="X" &&
+					button[8].getText()=="X"
+					&& turn == false) {
+				if(button[5].getText()=="") {
+					button[5].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="X" &&
+					button[5].getText()=="X"
+					&& turn == false) {
+				if(button[8].getText()=="") {
+					button[8].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[4].getText()=="X" &&
+					button[8].getText()=="X"
+					&& turn == false) {
+				if(button[0].getText()=="") {
+					button[0].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="X" &&
+					button[8].getText()=="X"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[4].getText()=="X" &&
+					button[0].getText()=="X"
+					&& turn == false) {
+				if(button[8].getText()=="") {
+					button[8].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[6].getText()=="X" &&
+					button[4].getText()=="X"
+					&& turn == false) {
+				if(button[2].getText()=="") {
+					button[2].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="X" &&
+					button[6].getText()=="X"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="X" &&
+					button[4].getText()=="X"
+					&& turn == false) {
+				if(button[6].getText()=="") {
+					button[6].setText("O");
+					turn = true;
+				}
+			}
+			
+			
+			
+			////**********************Second Turn End**********************************
+		}
+		
+		///************************This is common Turn*********************************
+		
+				if(turn == false) {
+					do {
+						randomNUM = random.nextInt(9);
+						if(button[randomNUM].getText() != "X" && button[randomNUM].getText() != "O") {
+							randomCheck = true;
+						}
+					}while(randomCheck == false);
+					
+					button[randomNUM].setText("O");
+					randomCheck = false;
+				}
+	}
+	
+	public void Oturn() {
+		boolean turn = false;
+		
+			if(button[0].getText()=="O" &&
+					button[1].getText()=="O"
+					&& turn == false) {
+				if(button[2].getText()=="") {
+					button[2].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="O" &&
+					button[2].getText()=="O"
+					&& turn == false) {
+				if(button[1].getText()=="") {
+					button[1].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[1].getText()=="O" &&
+					button[2].getText()=="O"
+					&& turn == false) {
+				if(button[0].getText()=="") {
+					button[0].setText("O");
+					turn = true;
+				}
+			}
+	//******************************************************************************		
+			if(button[3].getText()=="O" &&
+					button[4].getText()=="O"
+					&& turn == false) {
+				if(button[5].getText()=="") {
+					button[5].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[3].getText()=="O" &&
+					button[5].getText()=="O"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[4].getText()=="O" &&
+					button[5].getText()=="O"
+					&& turn == false) {
+				if(button[3].getText()=="") {
+					button[3].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[7].getText()=="O" &&
+					button[8].getText()=="O"
+					&& turn == false) {
+				if(button[6].getText()=="") {
+					button[6].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[6].getText()=="O" &&
+					button[8].getText()=="O"
+					&& turn == false) {
+				if(button[7].getText()=="") {
+					button[7].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[6].getText()=="O" &&
+					button[7].getText()=="O"
+					&& turn == false) {
+				if(button[8].getText()=="") {
+					button[8].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[3].getText()=="O" &&
+					button[6].getText()=="O"
+					&& turn == false) {
+				if(button[0].getText()=="") {
+					button[0].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="O" &&
+					button[6].getText()=="O"
+					&& turn == false) {
+				if(button[3].getText()=="") {
+					button[3].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="O" &&
+					button[3].getText()=="O"
+					&& turn == false) {
+				if(button[6].getText()=="") {
+					button[6].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[4].getText()=="O" &&
+					button[7].getText()=="O"
+					&& turn == false) {
+				if(button[1].getText()=="") {
+					button[1].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[1].getText()=="O" &&
+					button[7].getText()=="O"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[1].getText()=="O" &&
+					button[4].getText()=="O"
+					&& turn == false) {
+				if(button[7].getText()=="") {
+					button[7].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[5].getText()=="O" &&
+					button[8].getText()=="O"
+					&& turn == false) {
+				if(button[2].getText()=="") {
+					button[2].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="O" &&
+					button[8].getText()=="O"
+					&& turn == false) {
+				if(button[5].getText()=="") {
+					button[5].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="O" &&
+					button[5].getText()=="O"
+					&& turn == false) {
+				if(button[8].getText()=="") {
+					button[8].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[4].getText()=="O" &&
+					button[8].getText()=="O"
+					&& turn == false) {
+				if(button[0].getText()=="") {
+					button[0].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[0].getText()=="O" &&
+					button[8].getText()=="O"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[4].getText()=="O" &&
+					button[0].getText()=="O"
+					&& turn == false) {
+				if(button[8].getText()=="") {
+					button[8].setText("O");
+					turn = true;
+				}
+			}
+			
+			//******************************************************************************		
+			if(button[6].getText()=="O" &&
+					button[4].getText()=="O"
+					&& turn == false) {
+				if(button[2].getText()=="") {
+					button[2].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="O" &&
+					button[6].getText()=="O"
+					&& turn == false) {
+				if(button[4].getText()=="") {
+					button[4].setText("O");
+					turn = true;
+				}
+			}
+			
+			if(button[2].getText()=="O" &&
+					button[4].getText()=="O"
+					&& turn == false) {
+				if(button[6].getText()=="") {
+					button[6].setText("O");
+					turn = true;
+				}
+			}
+			////**********************Second Turn End**********************************
+		
+			if(turn == false) {
+				Xstopturn();
+			}
+			////*************************O end**************************************
+	}
+	
 	
 	
 	///******************************Main COde*************************
@@ -275,7 +781,7 @@ public class ChildClass extends JFrame implements ActionListener {
 			clearVariable();
 			colorReset();
 			buttonDisable(true);
-			//playAgain.setVisible(false);
+			playAgain.setVisible(false);
 		}
 		
 		for(i = 0; i<9; i++) {
