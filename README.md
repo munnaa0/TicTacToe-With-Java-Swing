@@ -13,9 +13,13 @@ This project features a graphical Tic-Tac-Toe game where you can play against an
 **Play Again Button:** Start a new game as much as you want.There is no limit.  
 **New Feature** Working on AI  
 
-# 🎨 Preview
+# 🎨 Preview : Single Player Mode
 
 ![2024-07-31 10-44-06(1)](https://github.com/user-attachments/assets/be4b2931-87be-4b47-ba79-be5889130431)
+
+# 🤖 Preview: AI Mode
+
+Updated Later on......  
 
 # 📜 How to Play
 **1. Start the Game:** Run the application and the game window will open.  
