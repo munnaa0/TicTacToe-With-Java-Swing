@@ -10,7 +10,8 @@ This project features a graphical Tic-Tac-Toe game where you can play against an
 **Interactive GUI:** Clean and responsive interface with Swing components.
 **Two Player Mode:** Play against another player on the same device.
 **Game Status:** Real-time updates on the game's outcome, including win, lose, and draw conditions.
-**Play Again Button:** Start a new game as much as you want.There is no limit.
+**Play Again Button:** Start a new game as much as you want.There is no limit.  
+**New Feature** Working on AI  
 
 # 🎨 Preview
 
