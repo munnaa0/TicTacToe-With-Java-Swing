@@ -30,6 +30,7 @@ public class multiPlayer extends JFrame implements ActionListener {
 		///ImageIcon Not used
 		ImageIcon icon = new ImageIcon("icon.png");
 		
+		///This is the top panel
 		panelTop = new JPanel();
 		panelTop.setBounds(0,0,700,100);
 		panelTop.setLayout(null);
