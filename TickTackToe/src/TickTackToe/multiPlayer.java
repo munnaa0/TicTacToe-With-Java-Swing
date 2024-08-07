@@ -27,6 +27,7 @@ public class multiPlayer extends JFrame implements ActionListener {
 	JButton playAgain;
 	multiPlayer()
 	{
+		///ImageIcon Not used
 		ImageIcon icon = new ImageIcon("icon.png");
 		
 		panelTop = new JPanel();
