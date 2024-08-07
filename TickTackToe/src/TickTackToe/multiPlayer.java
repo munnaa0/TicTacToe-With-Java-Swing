@@ -263,6 +263,8 @@ public class multiPlayer extends JFrame implements ActionListener {
 			playAgain.setVisible(false);
 		}
 		
+		///This is for main X or O buttons
+		
 		for(i = 0; i<9; i++) {
 			if(e.getSource() == button[i]) {
 				if(Xturn == true) {	
