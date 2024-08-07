@@ -40,11 +40,13 @@ public class multiPlayer extends JFrame implements ActionListener {
 		label.setBounds(200,0,700,100);
 		label.setBackground(Color.orange);
 		
+		///This is main game panel
 		panelGame = new JPanel();
 		panelGame.setBounds(0,100,700,600);
 		panelGame.setBackground(Color.cyan);
 		panelGame.setLayout(new GridLayout(3,3));
 		
+		//Button appears after a result
 		playAgain = new JButton();
 		playAgain.setBounds(550, 25, 120, 50);
 		playAgain.setText("Play Again");
