@@ -3,6 +3,7 @@ package TickTackToe;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 public class ChildClass extends JFrame implements ActionListener{
@@ -11,7 +12,7 @@ public class ChildClass extends JFrame implements ActionListener{
 	ChildClass(){
 		
 		///ImageIcon
-		ImageIcon icon = new ImageIcon("icon.png")
+		ImageIcon icon = new ImageIcon("icon.png");
 		
 		///For Frame
 		this.setTitle("Tic Tac Toe");
