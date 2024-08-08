@@ -9,7 +9,8 @@ public class ChildClass extends JFrame implements ActionListener{
 	
 	
 	ChildClass(){
-		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(500, 500);
 	}
 	
 	
