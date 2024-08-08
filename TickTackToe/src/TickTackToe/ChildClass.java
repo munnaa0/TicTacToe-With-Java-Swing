@@ -1,11 +1,13 @@
 package TickTackToe;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 public class ChildClass extends JFrame implements ActionListener{
 	
@@ -15,6 +17,11 @@ public class ChildClass extends JFrame implements ActionListener{
 		///ImageIcon
 		ImageIcon icon = new ImageIcon("icon.png");
 		
+		///Panels
+		JPanel topPanel = new JPanel();
+		topPanel.setBackground(Color.orange);
+		topPanel.setBounds(0, 0, 500, 100);
+		
 		///Buttons
 		JButton mulButton = new JButton();
 		mulButton.setBounds(100, 100, 200, 60);
@@ -22,6 +29,7 @@ public class ChildClass extends JFrame implements ActionListener{
 		
 		///Adding to frame
 		//this.add(mulButton);
+		this.add(topPanel);
 		
 		///For Frame
 		this.setTitle("Tic Tac Toe");
