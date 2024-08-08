@@ -71,6 +71,10 @@ public class frame extends JFrame {
 		JButton btnAI = new JButton("AI Mode");
 		btnAI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()== btnAI) {
+					AIclass AI = new AIclass(); ///This is to play With AI
+					dispose();
+				}
 			}
 		});
 		btnAI.setBackground(new Color(255, 255, 0));
@@ -83,6 +87,10 @@ public class frame extends JFrame {
 		btnmul.setForeground(new Color(255, 255, 255));
 		btnmul.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(e.getSource()==btnmul) {
+					multiPlayer player = new multiPlayer(); /// This is for Playing 2 person
+					dispose();
+				}
 			}
 		});
 		btnmul.setBackground(new Color(138, 43, 226));
