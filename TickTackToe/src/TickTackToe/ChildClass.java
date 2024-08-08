@@ -7,6 +7,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -15,20 +16,25 @@ public class ChildClass {
 	
 	ChildClass(){
 		
+		ImageIcon icon = new ImageIcon("icon.png");
+		
+		
 		JFrame frame = new JFrame();
 		
         frame.setResizable(false);
 		
 		frame.setTitle("Tic Tac Toe");
+		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 415, 408);
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setLocationRelativeTo(null);
+		
 		frame.setVisible(true);
 		frame.setContentPane(contentPane);
-		contentPane.setLayout(null);
 		
+		contentPane.setLayout(null);
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(new Color(255, 128, 192));
 		topPanel.setBounds(0, 0, 504, 72);
@@ -93,5 +99,6 @@ public class ChildClass {
 		btnmul.setBounds(89, 155, 217, 77);
 		btnmul.setFocusable(false);
 		mainPanel.add(btnmul);
+		frame.setIconImage(icon.getImage());
 	}
 }
