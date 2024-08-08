@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class ChildClass extends JFrame implements ActionListener{
@@ -16,6 +17,10 @@ public class ChildClass extends JFrame implements ActionListener{
 		
 		///ImageIcon
 		ImageIcon icon = new ImageIcon("icon.png");
+		
+		///Labels
+		JLabel label = new JLabel();
+		label.setText("Tic Tac Toe");
 		
 		///Panels
 		JPanel topPanel = new JPanel();
@@ -30,6 +35,7 @@ public class ChildClass extends JFrame implements ActionListener{
 		///Adding to frame
 		//this.add(mulButton);
 		this.add(topPanel);
+		topPanel.add(label);
 		
 		///For Frame
 		this.setTitle("Tic Tac Toe");
