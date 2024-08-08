@@ -17,10 +17,11 @@ public class ChildClass extends JFrame implements ActionListener{
 		
 		///Buttons
 		JButton mulButton = new JButton();
-		
+		mulButton.setBounds(100, 100, 200, 60);
+		mulButton.setFocusable(false);
 		
 		///Adding to frame
-		this.add(mulButton);
+		//this.add(mulButton);
 		
 		///For Frame
 		this.setTitle("Tic Tac Toe");
