@@ -72,8 +72,9 @@ public class frame extends JFrame {
 		btnAI.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()== btnAI) {
-					AIclass AI = new AIclass(); ///This is to play With AI
 					dispose();
+					AIclass AI = new AIclass(); ///This is to play With AI
+					
 				}
 			}
 		});
@@ -88,8 +89,9 @@ public class frame extends JFrame {
 		btnmul.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(e.getSource()==btnmul) {
-					multiPlayer player = new multiPlayer(); /// This is for Playing 2 person
 					dispose();
+					multiPlayer player = new multiPlayer();/// This is for Playing 2 person
+					
 				}
 			}
 		});

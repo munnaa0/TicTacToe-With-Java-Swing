@@ -4,9 +4,9 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		
-		//ChildClass Tick = new ChildClass(); // This is For testing Purposes
+		ChildClass Tick = new ChildClass(); // This is main Window
 		
-		new frame();
+		//new frame();
 		
 		//multiPlayer player = new multiPlayer(); /// This is for Playing 2 person
 		
