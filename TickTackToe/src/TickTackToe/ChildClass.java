@@ -6,6 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 public class ChildClass extends JFrame implements ActionListener{
+	
+	
+	ChildClass(){
+		
+	}
+	
+	
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
