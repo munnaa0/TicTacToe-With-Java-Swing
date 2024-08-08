@@ -16,8 +16,10 @@ public class ChildClass extends JFrame implements ActionListener{
 		
 		///For Frame
 		this.setTitle("Tic Tac Toe");
+		this.setIconImage(icon.getImage());
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(500, 500);
+		this.setVisible(true);
 	}
 	
 	
