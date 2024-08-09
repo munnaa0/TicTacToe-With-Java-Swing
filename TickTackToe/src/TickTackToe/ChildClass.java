@@ -18,7 +18,6 @@ public class ChildClass {
 		
 		ImageIcon icon = new ImageIcon("icon.png");
 		
-		
 		JFrame frame = new JFrame();
 		
         frame.setResizable(false);
@@ -27,21 +26,17 @@ public class ChildClass {
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setBounds(100, 100, 415, 408);
-		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.setLocationRelativeTo(null);
+		frame.setLayout(null);
 		
 		frame.setVisible(true);
-		frame.setContentPane(contentPane);
-		
-		contentPane.setLayout(null);
 		JPanel topPanel = new JPanel();
 		topPanel.setBackground(new Color(255, 128, 192));
 		topPanel.setBounds(0, 0, 504, 72);
-		contentPane.add(topPanel);
+		frame.add(topPanel);
 		topPanel.setLayout(null);
 		
-		JLabel topLabel = new JLabel("Tic Tac Toe\r\n");
+		JLabel topLabel = new JLabel("Tic Tac Toe");
 		topLabel.setForeground(new Color(0, 0, 255));
 		topLabel.setFont(new Font("Tahoma", Font.PLAIN, 58));
 		topLabel.setBounds(51, 0, 306, 64);
@@ -50,7 +45,7 @@ public class ChildClass {
 		JPanel bottomPanel = new JPanel();
 		bottomPanel.setBackground(new Color(128, 255, 0));
 		bottomPanel.setBounds(-39, 71, 553, 32);
-		contentPane.add(bottomPanel);
+		frame.add(bottomPanel);
 		bottomPanel.setLayout(null);
 		
 		JLabel bottomLabel = new JLabel("Select Game Mode");
@@ -64,7 +59,7 @@ public class ChildClass {
 		JPanel mainPanel = new JPanel();
 		mainPanel.setBackground(new Color(128, 255, 255));
 		mainPanel.setBounds(0, 101, 426, 284);
-		contentPane.add(mainPanel);
+		frame.add(mainPanel);
 		mainPanel.setLayout(null);
 		
 		JButton btnAI = new JButton("AI Mode");
