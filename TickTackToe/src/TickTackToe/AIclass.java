@@ -257,37 +257,47 @@ public class AIclass extends JFrame implements ActionListener {
 	
 	//***********************************AI TURN***************************************
 	public void AIturn() {
-		boolean turn = false;
-		///************************First Turn*****************************************
 		if(FirstTurn == true) {
-			if(button[4].getText()=="X") {
-				button[2].setText("O");
-			}
-			else if(button[0].getText()=="X" ||
-				button[2].getText()=="X" ||
-				button[6].getText()=="X" ||
-				button[8].getText()=="X") {
-				
-				button[4].setText("O");
-			}
-			else if(button[1].getText()=="X") {
-				button[2].setText("O");
-			}
-			else if(button[5].getText()=="X" ||
-					button[7].getText()=="X") {
-				button[8].setText("O");
-			}
-			else if(button[3].getText()=="X") {
-				button[6].setText("O");
-			}
+			FirstTurn();
 			FirstTurn = false;
-			turn = true;
 		}
-		//************************First TUrn END**************************************
 		else {
 			Oturn();
 		}
 		label.setText("X Turn");
+	}
+	
+	public void Oturn() {
+		boolean turn = false;
+			turn = OwinTurn(turn);
+			////**********************Second Turn End**********************************
+			if(turn == false) {
+				Xstopturn();
+			}
+	}
+	
+	///Used for very first AITurn
+	public void FirstTurn() {
+		if(button[4].getText()=="X") {
+			button[2].setText("O");
+		}
+		else if(button[0].getText()=="X" ||
+			button[2].getText()=="X" ||
+			button[6].getText()=="X" ||
+			button[8].getText()=="X") {
+			
+			button[4].setText("O");
+		}
+		else if(button[1].getText()=="X") {
+			button[2].setText("O");
+		}
+		else if(button[5].getText()=="X" ||
+				button[7].getText()=="X") {
+			button[8].setText("O");
+		}
+		else if(button[3].getText()=="X") {
+			button[6].setText("O");
+		}
 	}
 	
 	public void Xstopturn() {
@@ -536,240 +546,233 @@ public class AIclass extends JFrame implements ActionListener {
 				}
 	}
 	
-	public void Oturn() {
-		boolean turn = false;
+	public boolean OwinTurn(boolean turn) {
 		
-			if(button[0].getText()=="O" &&
-					button[1].getText()=="O"
-					&& turn == false) {
-				if(button[2].getText()=="") {
-					button[2].setText("O");
-					turn = true;
-				}
+		if(button[0].getText()=="O" &&
+				button[1].getText()=="O"
+				&& turn == false) {
+			if(button[2].getText()=="") {
+				button[2].setText("O");
+				turn = true;
 			}
-			
-			if(button[0].getText()=="O" &&
-					button[2].getText()=="O"
-					&& turn == false) {
-				if(button[1].getText()=="") {
-					button[1].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[1].getText()=="O" &&
-					button[2].getText()=="O"
-					&& turn == false) {
-				if(button[0].getText()=="") {
-					button[0].setText("O");
-					turn = true;
-				}
-			}
-	//******************************************************************************		
-			if(button[3].getText()=="O" &&
-					button[4].getText()=="O"
-					&& turn == false) {
-				if(button[5].getText()=="") {
-					button[5].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[3].getText()=="O" &&
-					button[5].getText()=="O"
-					&& turn == false) {
-				if(button[4].getText()=="") {
-					button[4].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[4].getText()=="O" &&
-					button[5].getText()=="O"
-					&& turn == false) {
-				if(button[3].getText()=="") {
-					button[3].setText("O");
-					turn = true;
-				}
-			}
-			
-			//******************************************************************************		
-			if(button[7].getText()=="O" &&
-					button[8].getText()=="O"
-					&& turn == false) {
-				if(button[6].getText()=="") {
-					button[6].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[6].getText()=="O" &&
-					button[8].getText()=="O"
-					&& turn == false) {
-				if(button[7].getText()=="") {
-					button[7].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[6].getText()=="O" &&
-					button[7].getText()=="O"
-					&& turn == false) {
-				if(button[8].getText()=="") {
-					button[8].setText("O");
-					turn = true;
-				}
-			}
-			
-			//******************************************************************************		
-			if(button[3].getText()=="O" &&
-					button[6].getText()=="O"
-					&& turn == false) {
-				if(button[0].getText()=="") {
-					button[0].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[0].getText()=="O" &&
-					button[6].getText()=="O"
-					&& turn == false) {
-				if(button[3].getText()=="") {
-					button[3].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[0].getText()=="O" &&
-					button[3].getText()=="O"
-					&& turn == false) {
-				if(button[6].getText()=="") {
-					button[6].setText("O");
-					turn = true;
-				}
-			}
-			
-			//******************************************************************************		
-			if(button[4].getText()=="O" &&
-					button[7].getText()=="O"
-					&& turn == false) {
-				if(button[1].getText()=="") {
-					button[1].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[1].getText()=="O" &&
-					button[7].getText()=="O"
-					&& turn == false) {
-				if(button[4].getText()=="") {
-					button[4].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[1].getText()=="O" &&
-					button[4].getText()=="O"
-					&& turn == false) {
-				if(button[7].getText()=="") {
-					button[7].setText("O");
-					turn = true;
-				}
-			}
-			
-			//******************************************************************************		
-			if(button[5].getText()=="O" &&
-					button[8].getText()=="O"
-					&& turn == false) {
-				if(button[2].getText()=="") {
-					button[2].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[2].getText()=="O" &&
-					button[8].getText()=="O"
-					&& turn == false) {
-				if(button[5].getText()=="") {
-					button[5].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[2].getText()=="O" &&
-					button[5].getText()=="O"
-					&& turn == false) {
-				if(button[8].getText()=="") {
-					button[8].setText("O");
-					turn = true;
-				}
-			}
-			
-			//******************************************************************************		
-			if(button[4].getText()=="O" &&
-					button[8].getText()=="O"
-					&& turn == false) {
-				if(button[0].getText()=="") {
-					button[0].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[0].getText()=="O" &&
-					button[8].getText()=="O"
-					&& turn == false) {
-				if(button[4].getText()=="") {
-					button[4].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[4].getText()=="O" &&
-					button[0].getText()=="O"
-					&& turn == false) {
-				if(button[8].getText()=="") {
-					button[8].setText("O");
-					turn = true;
-				}
-			}
-			
-			//******************************************************************************		
-			if(button[6].getText()=="O" &&
-					button[4].getText()=="O"
-					&& turn == false) {
-				if(button[2].getText()=="") {
-					button[2].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[2].getText()=="O" &&
-					button[6].getText()=="O"
-					&& turn == false) {
-				if(button[4].getText()=="") {
-					button[4].setText("O");
-					turn = true;
-				}
-			}
-			
-			if(button[2].getText()=="O" &&
-					button[4].getText()=="O"
-					&& turn == false) {
-				if(button[6].getText()=="") {
-					button[6].setText("O");
-					turn = true;
-				}
-			}
-			////**********************Second Turn End**********************************
+		}
 		
-			if(turn == false) {
-				Xstopturn();
+		if(button[0].getText()=="O" &&
+				button[2].getText()=="O"
+				&& turn == false) {
+			if(button[1].getText()=="") {
+				button[1].setText("O");
+				turn = true;
 			}
-			////*************************O end**************************************
+		}
+		
+		if(button[1].getText()=="O" &&
+				button[2].getText()=="O"
+				&& turn == false) {
+			if(button[0].getText()=="") {
+				button[0].setText("O");
+				turn = true;
+			}
+		}
+//******************************************************************************		
+		if(button[3].getText()=="O" &&
+				button[4].getText()=="O"
+				&& turn == false) {
+			if(button[5].getText()=="") {
+				button[5].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[3].getText()=="O" &&
+				button[5].getText()=="O"
+				&& turn == false) {
+			if(button[4].getText()=="") {
+				button[4].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[4].getText()=="O" &&
+				button[5].getText()=="O"
+				&& turn == false) {
+			if(button[3].getText()=="") {
+				button[3].setText("O");
+				turn = true;
+			}
+		}
+		
+		//******************************************************************************		
+		if(button[7].getText()=="O" &&
+				button[8].getText()=="O"
+				&& turn == false) {
+			if(button[6].getText()=="") {
+				button[6].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[6].getText()=="O" &&
+				button[8].getText()=="O"
+				&& turn == false) {
+			if(button[7].getText()=="") {
+				button[7].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[6].getText()=="O" &&
+				button[7].getText()=="O"
+				&& turn == false) {
+			if(button[8].getText()=="") {
+				button[8].setText("O");
+				turn = true;
+			}
+		}
+		
+		//******************************************************************************		
+		if(button[3].getText()=="O" &&
+				button[6].getText()=="O"
+				&& turn == false) {
+			if(button[0].getText()=="") {
+				button[0].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[0].getText()=="O" &&
+				button[6].getText()=="O"
+				&& turn == false) {
+			if(button[3].getText()=="") {
+				button[3].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[0].getText()=="O" &&
+				button[3].getText()=="O"
+				&& turn == false) {
+			if(button[6].getText()=="") {
+				button[6].setText("O");
+				turn = true;
+			}
+		}
+		
+		//******************************************************************************		
+		if(button[4].getText()=="O" &&
+				button[7].getText()=="O"
+				&& turn == false) {
+			if(button[1].getText()=="") {
+				button[1].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[1].getText()=="O" &&
+				button[7].getText()=="O"
+				&& turn == false) {
+			if(button[4].getText()=="") {
+				button[4].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[1].getText()=="O" &&
+				button[4].getText()=="O"
+				&& turn == false) {
+			if(button[7].getText()=="") {
+				button[7].setText("O");
+				turn = true;
+			}
+		}
+		
+		//******************************************************************************		
+		if(button[5].getText()=="O" &&
+				button[8].getText()=="O"
+				&& turn == false) {
+			if(button[2].getText()=="") {
+				button[2].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[2].getText()=="O" &&
+				button[8].getText()=="O"
+				&& turn == false) {
+			if(button[5].getText()=="") {
+				button[5].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[2].getText()=="O" &&
+				button[5].getText()=="O"
+				&& turn == false) {
+			if(button[8].getText()=="") {
+				button[8].setText("O");
+				turn = true;
+			}
+		}
+		
+		//******************************************************************************		
+		if(button[4].getText()=="O" &&
+				button[8].getText()=="O"
+				&& turn == false) {
+			if(button[0].getText()=="") {
+				button[0].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[0].getText()=="O" &&
+				button[8].getText()=="O"
+				&& turn == false) {
+			if(button[4].getText()=="") {
+				button[4].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[4].getText()=="O" &&
+				button[0].getText()=="O"
+				&& turn == false) {
+			if(button[8].getText()=="") {
+				button[8].setText("O");
+				turn = true;
+			}
+		}
+		
+		//******************************************************************************		
+		if(button[6].getText()=="O" &&
+				button[4].getText()=="O"
+				&& turn == false) {
+			if(button[2].getText()=="") {
+				button[2].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[2].getText()=="O" &&
+				button[6].getText()=="O"
+				&& turn == false) {
+			if(button[4].getText()=="") {
+				button[4].setText("O");
+				turn = true;
+			}
+		}
+		
+		if(button[2].getText()=="O" &&
+				button[4].getText()=="O"
+				&& turn == false) {
+			if(button[6].getText()=="") {
+				button[6].setText("O");
+				turn = true;
+			}
+		}
+		
+		return turn;
 	}
-	
-	
-	
+
 	///******************************Main COde*************************
 	@Override
 	public void actionPerformed(ActionEvent e) {
