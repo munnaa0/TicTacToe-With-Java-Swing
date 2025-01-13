@@ -40,6 +40,7 @@ public class AIclass extends JFrame implements ActionListener {
 		label.setBounds(200,0,700,100);
 		label.setBackground(Color.orange);
 		
+		
 		panelGame = new JPanel();
 		panelGame.setBounds(0,100,700,600);
 		panelGame.setBackground(Color.cyan);
@@ -773,6 +774,7 @@ public class AIclass extends JFrame implements ActionListener {
 		return turn;
 	}
 
+	
 	///******************************Main COde*************************
 	@Override
 	public void actionPerformed(ActionEvent e) {
